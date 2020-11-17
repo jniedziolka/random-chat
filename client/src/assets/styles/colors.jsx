@@ -1,6 +1,11 @@
-const colors = {
-    primary: '#00539CFF', // royal blue
-    secondary: '#EEA47FFF' // peach
+export const colors = {
+    lightestGray: '#F7F7FF',
+    lightGray: '#7A7F9A',
+    gray: '#E6EBF5',
+    darkGray: '#3A4148',
+    purple: '#5246EB',
 }
 
-export default colors;
+export const rgbColors = {
+    purple: '82, 70, 235'
+}

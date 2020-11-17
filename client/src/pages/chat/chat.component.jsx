@@ -7,7 +7,6 @@ import {
 const Chat = () => {
     return (
         <ChatContainer>
-            
         </ChatContainer>
     );
 }

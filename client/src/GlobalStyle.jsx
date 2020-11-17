@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
 		margin: 0;
 		font-family: 'Open Sans', sans-serif;
 		font-size: 62.5%;
+		box-sizing: border-box;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}

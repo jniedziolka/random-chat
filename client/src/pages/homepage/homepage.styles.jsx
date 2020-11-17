@@ -1,36 +1,116 @@
-import styled from 'styled-components';
-import colors from '../../assets/styles/colors';
+import styled, { css } from 'styled-components';
+import { colors, rgbColors } from '../../assets/styles/colors';
+
+const basicInputStyles = css`
+    background-color: ${colors.lightestGray};
+    border: 1px solid ${colors.gray};
+    border-radius: .3rem;
+    outline: none;
+    padding: 1rem;
+    font-size: 1rem;
+`;
 
 export const HomepageContainer = styled.div`
     height: 100vh;
-    background: linear-gradient(180deg, ${colors.primary} 65%, white 40%);
+    background-color: ${colors.lightestGray};
 `;
 
-export const Select = styled.select`
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%);
+export const TitleContainer = styled.div`
+    padding-top: 5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const LogoContainer = styled.div`
+    width: 2rem;
+    height: 2rem;
+`;
+
+export const Title = styled.h1`
+    color: ${colors.darkGray};
+    margin-left: 1rem;
     font-size: 1.5rem;
-    border: 1px solid black;
+`;
+
+export const BoxTitle = styled.h2`
+    color: ${colors.darkGray};
+    text-align: center;
+    font-size: 1.25rem;
+`;
+
+export const BoxSubtitle = styled.h3`
+    color: ${colors.lightGray};
+    text-align: center;
+    font-size: .9rem;
+`;
+
+export const Box = styled.div`
+    margin: 2rem auto 0 auto;
+    width: 30%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0 1rem 0;
+`;
+
+export const FormGroup = styled.div`
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+`;
+
+
+export const Label = styled.label`
+    font-size: .9rem;
     margin-bottom: 1rem;
 `;
 
+export const Input = styled.input`
+    ${basicInputStyles}
+    margin-bottom: 1rem;
+`;
+
+export const Select = styled.select`
+    ${basicInputStyles}
+`;
+
 export const Option = styled.option`
-    font-size: 1.5rem;
+    background-color: ${colors.lightestGray};
+
+    &:hover {
+        background-color: none;
+    }
 `;
 
 export const Button = styled.button`
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 90%;
+    margin: 2rem auto;
+    background-color: rgba(${rgbColors.purple}, .8);
+    color: white;
     outline: none;
     border: none;
-    border-radius: .1rem;
-    cursor: pointer;
-    background-color: ${colors.secondary};
-    color: white;
-    font-size: 2rem;
-    padding: .5rem;
+    font-size: 1rem;
+    border-radius: .3rem;
+    padding: 1rem;
+    transition: all .2s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgba(${rgbColors.purple}, 1);
+    }
+`;
+
+export const Credits = styled.p`
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1rem;
+
+    & > a {
+        text-decoration: none;
+        color: ${colors.purple};
+        font-weight: 700;
+    }
 `;
