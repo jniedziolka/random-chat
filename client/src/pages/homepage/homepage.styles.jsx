@@ -1,14 +1,5 @@
-import styled, { css } from 'styled-components';
-import { colors, rgbColors } from '../../assets/styles/colors';
-
-const basicInputStyles = css`
-    background-color: ${colors.lightestGray};
-    border: 1px solid ${colors.gray};
-    border-radius: .3rem;
-    outline: none;
-    padding: 1rem;
-    font-size: 1rem;
-`;
+import styled from 'styled-components';
+import { colors } from '../../assets/styles/colors';
 
 export const HomepageContainer = styled.div`
     height: 100vh;

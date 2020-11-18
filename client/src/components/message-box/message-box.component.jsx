@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import { selectUserData } from '../../redux/user/user.selectors';
 
 import {
     MessageBoxContainer,
@@ -7,11 +11,11 @@ import {
     MessageText
 } from './message-box.styles';
 
-const MessageBox = () => {
+const MessageBox = ({ userData }) => {
     return (
         <MessageBoxContainer>
             <MessageContainer>
-                <MessageText>Connected with stranger.</MessageText>
+                <MessageText>Connected with stranger. You are {userData.nickname} from {userData.country}.</MessageText>
             </MessageContainer>
             <MessageContainer>
                 <MessageAuthor isYou={true}>You: </MessageAuthor>
@@ -25,4 +29,8 @@ const MessageBox = () => {
     );
 }
 
-export default MessageBox;
+const mapStateToProps = createStructuredSelector({
+    userData: selectUserData
+});
+
+export default connect(mapStateToProps)(MessageBox);

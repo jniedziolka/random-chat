@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, rgbColors } from '../../assets/styles/colors';
+import { colors } from '../../assets/styles/colors';
 
 export const ChatContainer = styled.div`
     height: 100vh;

@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+import { setData } from '../../redux/user/user.actions'
 
 import {
     Box,
@@ -11,25 +14,44 @@ import {
     Button
 } from './enter-box.styles';
 
-const EnterBox = () => {
+const EnterBox = ({ setData }) => {
     const history = useHistory();
+    const [userData, setUserData] = useState({ 'nickname': '', 'country': '' });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData({...userData, [name]: value});
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setData(userData);
+        history.push('/chat');
+    }
 
     return (
-        <Box>
-            <BoxGroup>
-                <Label>Nickname</Label>
-                <Input type="text" />
-            </BoxGroup>
-            <BoxGroup>
-                <Label>Country</Label>
-                <Select>
-                    <Option value="Poland">Poland</Option>
-                    <Option value="Belarus">Belarus</Option>
-                </Select>
-            </BoxGroup>
-            <Button onClick={() => history.push('/chat')}>Start Talking</Button>
-        </Box>
+        <form onSubmit={handleSubmit}>
+            <Box>
+                <BoxGroup>
+                    <Label>Nickname</Label>
+                    <Input name='nickname' type="text" onChange={handleChange} />
+                </BoxGroup>
+                <BoxGroup>
+                    <Label>Country</Label>
+                    <Select name='country' onChange={handleChange}>
+                        <Option value=''>----</Option>
+                        <Option value='poland'>Poland</Option>
+                        <Option value='belarus'>Belarus</Option>
+                    </Select>
+                </BoxGroup>
+                <Button>Start Talking</Button>
+            </Box>
+        </form>
     );
 }
 
-export default EnterBox;
+const mapDispatchToProps = dispatch => ({
+    setData: (data) => dispatch(setData(data))
+});
+
+export default connect(null, mapDispatchToProps)(EnterBox);
