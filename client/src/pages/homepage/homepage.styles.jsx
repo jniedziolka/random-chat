@@ -23,17 +23,6 @@ export const TitleContainer = styled.div`
     justify-content: center;
 `;
 
-export const LogoContainer = styled.div`
-    width: 2rem;
-    height: 2rem;
-`;
-
-export const Title = styled.h1`
-    color: ${colors.darkGray};
-    margin-left: 1rem;
-    font-size: 1.5rem;
-`;
-
 export const BoxTitle = styled.h2`
     color: ${colors.darkGray};
     text-align: center;
@@ -100,17 +89,5 @@ export const Button = styled.button`
     &:hover {
         cursor: pointer;
         background-color: rgba(${rgbColors.purple}, 1);
-    }
-`;
-
-export const Credits = styled.p`
-    margin-top: 3rem;
-    text-align: center;
-    font-size: 1rem;
-
-    & > a {
-        text-decoration: none;
-        color: ${colors.purple};
-        font-weight: 700;
     }
 `;

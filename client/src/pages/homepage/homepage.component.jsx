@@ -1,11 +1,12 @@
 import React from 'react';
-import { ReactComponent as SpeechLogo } from '../../assets/icons/speech-bubble.svg';
+import { useHistory } from 'react-router-dom';
+
+import Title from '../../components/title/title.component';
+import AuthorCredits from '../../components/credits/credits.component';
 
 import {
     HomepageContainer,
     TitleContainer,
-    LogoContainer,
-    Title,
     BoxTitle,
     BoxSubtitle,
     Box,
@@ -14,18 +15,16 @@ import {
     Input,
     Select,
     Option,
-    Button,
-    Credits
+    Button
 } from './homepage.styles';
 
 const HomePage = () => {
+    const history = useHistory();
+
     return (
         <HomepageContainer>
             <TitleContainer>
-                <LogoContainer>
-                    <SpeechLogo />
-                </LogoContainer>
-                <Title>Let's Talk!</Title>
+                <Title />
             </TitleContainer>
             <BoxTitle>Just Try</BoxTitle>
             <BoxSubtitle>It's never too late to find a new friend.</BoxSubtitle>
@@ -41,9 +40,9 @@ const HomePage = () => {
                         <Option value="Belarus">Belarus</Option>
                     </Select>
                 </FormGroup>
-                <Button>Start Talking</Button>
+                <Button onClick={() => history.push('/chat')}>Start Talking</Button>
             </Box>
-            <Credits>Want to know the author? Just visit his <a href="https://jniedziolka.github.io" target="_blank" rel="noopener noreferrer">site!</a></Credits>
+            <AuthorCredits />
         </HomepageContainer>
     );
 }
