@@ -10,15 +10,17 @@ import {
     TitleContainer,
 } from './chat.styles';
 
-const Chat = () => (
-    <ChatContainer>
-        <TitleContainer>
-            <Title />
-        </TitleContainer>
-        <MessageBox />
-        <ControlBox />
-        <Credits />
-    </ChatContainer>
-);
+const Chat = () => {
+    return (
+        <ChatContainer>
+            <TitleContainer>
+                <Title />
+            </TitleContainer>
+            <MessageBox />
+            <ControlBox />
+            <Credits />
+        </ChatContainer>
+    )
+};
 
 export default Chat;

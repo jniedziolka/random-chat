@@ -34,11 +34,11 @@ const EnterBox = ({ setData }) => {
             <Box>
                 <BoxGroup>
                     <Label>Nickname</Label>
-                    <Input name='nickname' type="text" onChange={handleChange} />
+                    <Input name='nickname' type="text" onChange={handleChange} required={true} />
                 </BoxGroup>
                 <BoxGroup>
                     <Label>Country</Label>
-                    <Select name='country' onChange={handleChange}>
+                    <Select name='country' onChange={handleChange} required={true} >
                         <Option value=''>----</Option>
                         <Option value='poland'>Poland</Option>
                         <Option value='belarus'>Belarus</Option>

@@ -11,23 +11,22 @@ import {
     MessageText
 } from './message-box.styles';
 
-const MessageBox = ({ userData }) => {
-    return (
-        <MessageBoxContainer>
-            <MessageContainer>
-                <MessageText>Connected with stranger. You are {userData.nickname} from {userData.country}.</MessageText>
-            </MessageContainer>
-            <MessageContainer>
-                <MessageAuthor isYou={true}>You: </MessageAuthor>
-                <MessageText>Hej</MessageText>
-            </MessageContainer>
-            <MessageContainer>
-                <MessageAuthor isYou={false}>Stranger: </MessageAuthor>
-                <MessageText>Hej</MessageText>
-            </MessageContainer>
-        </MessageBoxContainer>
-    );
-}
+const MessageBox = ({ userData }) => (
+    <MessageBoxContainer>
+        <MessageContainer>
+            <MessageText>Connected with stranger. You are {userData.nickname} from {userData.country}.</MessageText>
+        </MessageContainer>
+        <MessageContainer>
+            <MessageAuthor isYou={true}>You: </MessageAuthor>
+            <MessageText>Hej</MessageText>
+        </MessageContainer>
+        <MessageContainer>
+            <MessageAuthor isYou={false}>Stranger: </MessageAuthor>
+            <MessageText>Hej</MessageText>
+        </MessageContainer>
+    </MessageBoxContainer>
+);
+
 
 const mapStateToProps = createStructuredSelector({
     userData: selectUserData
