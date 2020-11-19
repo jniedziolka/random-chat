@@ -20,9 +20,14 @@ export const Button = styled.button`
     color: white;
     font-size: 1rem;
 
-    &:hover {
+    &:hover:enabled {
         cursor: pointer;
         background-color: rgba(${rgbColors.purple}, 1);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: rgba(${rgbColors.purple}, 0.5);
     }
 `;
 
@@ -36,4 +41,8 @@ export const MessageInput = styled.textarea`
     font-size: 1rem;
     color: ${colors.darkGray};
     padding: .5rem;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 `;

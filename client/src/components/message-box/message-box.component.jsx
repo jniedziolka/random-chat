@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { selectUserData } from '../../redux/user/user.selectors';
+import { selectMessages } from '../../redux/chat/chat.selectors';
 
 import {
     MessageBoxContainer,
@@ -11,25 +12,23 @@ import {
     MessageText
 } from './message-box.styles';
 
-const MessageBox = ({ userData }) => (
+const MessageBox = ({ userData, messages }) => (
     <MessageBoxContainer>
-        <MessageContainer>
-            <MessageText>Connected with stranger. You are {userData.nickname} from {userData.country}.</MessageText>
-        </MessageContainer>
-        <MessageContainer>
-            <MessageAuthor isYou={true}>You: </MessageAuthor>
-            <MessageText>Hej</MessageText>
-        </MessageContainer>
-        <MessageContainer>
-            <MessageAuthor isYou={false}>Stranger: </MessageAuthor>
-            <MessageText>Hej</MessageText>
-        </MessageContainer>
+        {
+            messages.map((message, idx) => 
+                <MessageContainer key={idx}>
+                    { message.author ? <MessageAuthor isYou={message.author === 'You'}>{message.author}: </MessageAuthor> : null }
+                    <MessageText>{message.text}</MessageText>
+                </MessageContainer>
+            )
+        }
     </MessageBoxContainer>
 );
 
 
 const mapStateToProps = createStructuredSelector({
-    userData: selectUserData
+    userData: selectUserData,
+    messages: selectMessages
 });
 
 export default connect(mapStateToProps)(MessageBox);
