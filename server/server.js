@@ -1,4 +1,7 @@
-const app = require('express')();
+const express = require('express');
+const path = require('path');
+
+const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
     cors: {
@@ -7,15 +10,16 @@ const io = require('socket.io')(server, {
     }
 });
 const cors = require('cors');
-const port = 3001;
+const port = process.env.PORT || 5000;
 
 const { addNewUser, setUserData, removeUser, addUserToQueue, removeUserFromQueue, findUserInQueue } = require('./storage/users');
 const { createRoom, deleteRoom, getUserRoom } = require('./storage/rooms');
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 io.on('connection', socket => {
