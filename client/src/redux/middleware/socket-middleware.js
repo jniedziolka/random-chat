@@ -28,7 +28,7 @@ const socketMiddleware = (url) => {
 
         return next => action => {
             if(action.type === ChatActionTypes.FIND_PAIR_START) {
-                socket.emit('findPairStart');
+                socket.emit('findPairStart', { name: storeAPI.getState().user.userData.nickname, country: storeAPI.getState().user.userData.country });
             } else if(action.type === ChatActionTypes.SEND_MESSAGE) {
                 socket.emit('message', { author: action.payload.author, text: action.payload.text });
             } else if(action.type === ChatActionTypes.LEAVE_ROOM) {

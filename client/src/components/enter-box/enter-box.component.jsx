@@ -14,7 +14,7 @@ import {
     Button
 } from './enter-box.styles';
 
-const EnterBox = ({ setData }) => {
+const EnterBox = ({ setData, leaveRoom }) => {
     const history = useHistory();
     const [userData, setUserData] = useState({ 'nickname': '', 'country': '' });
 
@@ -51,7 +51,7 @@ const EnterBox = ({ setData }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setData: (data) => dispatch(setData(data))
+    setData: data => dispatch(setData(data))
 });
 
 export default connect(null, mapDispatchToProps)(EnterBox);

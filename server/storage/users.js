@@ -19,6 +19,11 @@ const addNewUser = (id, name, country, socket) => {
     return user;
 }
 
+const setUserData = (id, name, country) => {
+    users[id].name = name;
+    users[id].country = country;
+}
+
 const removeUser = id => {
     delete users[id];
 };
@@ -37,6 +42,7 @@ const findUserInQueue = (id, country) => Object.values(usersQueue).find(user => 
 
 module.exports = {
     addNewUser,
+    setUserData,
     removeUser,
     findUser,
     addUserToQueue,
