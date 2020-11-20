@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "cd server && yarn",
     "start": "node server/server.js",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   },
