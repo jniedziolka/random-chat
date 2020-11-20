@@ -5,7 +5,7 @@ import socketMiddleware from './middleware/socket-middleware';
 
 import rootReducer from './root-reducer';
 
-const middlewares = [socketMiddleware('http://localhost:5000')];
+const middlewares = [socketMiddleware()];
 
 if(process.env.NODE_ENV === 'development') {
     middlewares.push(logger);

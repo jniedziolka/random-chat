@@ -1,9 +1,9 @@
 import socketIOClient from 'socket.io-client';
 import ChatActionTypes from '../chat/chat.types';
 
-const socketMiddleware = (url) => {
+const socketMiddleware = () => {
     return storeAPI => {
-        const socket = socketIOClient(url);
+        const socket = socketIOClient();
 
         socket.on('findPairSuccess', (roomName) => {
             storeAPI.dispatch({
