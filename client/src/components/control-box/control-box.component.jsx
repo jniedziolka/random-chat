@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { appendMessage, sendMessage, findPairStart, leaveRoom } from '../../redux/chat/chat.actions';
@@ -29,16 +29,29 @@ const ControlBox = ({ userData, appendMessage, sendMessage, currentRoom, findPai
     }
 
     const handleSend = (e) => {
-        appendMessage({ author: 'You', text: messageText });
-        sendMessage({ author: userData.nickname, text: messageText });
-        setMessageText('');
-        inputRef.current.focus();
+        if(messageText) {
+            appendMessage({ author: 'You', text: messageText });
+            sendMessage({ author: userData.nickname, text: messageText });
+            setMessageText('');
+            inputRef.current.focus();
+        }
     };
+
+    const handleKeyPress = (e) => {
+        if(e.key === 'Enter') {
+            e.preventDefault();
+            handleSend();
+        }
+    }
+
+    useEffect(() => {
+        inputRef.current.focus();
+    });
 
     return (
         <Box>
             <Button onClick={handleToggleButton} disabled={isConnecting}>{currentRoom ? 'Disconnect' : 'New Pair'}</Button>
-            <MessageInput ref={inputRef} onChange={handleChange} value={messageText} autoFocus={true} disabled={!currentRoom}></MessageInput>
+            <MessageInput ref={inputRef} onChange={handleChange} value={messageText} autoFocus={true} disabled={!currentRoom} onKeyPress={handleKeyPress}></MessageInput>
             <Button onClick={handleSend} disabled={!currentRoom}>Send Message</Button>
         </Box>
     );

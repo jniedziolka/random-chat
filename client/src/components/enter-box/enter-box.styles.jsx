@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { colors, rgbColors } from '../../assets/styles/colors';
+import { breakpoints } from '../../assets/styles/breakpoints';
 
 const basicInputStyles = css`
     background-color: ${colors.lightestGray};
@@ -12,11 +13,23 @@ const basicInputStyles = css`
 
 export const Box = styled.div`
     margin: 2rem auto 0 auto;
-    width: 30%;
+    width: 40rem;
     background-color: white;
     display: flex;
     flex-direction: column;
     padding: 2rem 0 1rem 0;
+
+    @media only screen and (max-width: ${breakpoints.large}) {
+        width: 30rem;
+    }
+
+    @media only screen and (max-width: ${breakpoints.medium}) {
+        width: 25rem;
+    }
+
+    @media only screen and (max-width: ${breakpoints.small}) {
+        width: 15rem;
+    }
 `;
 
 export const BoxGroup = styled.div`

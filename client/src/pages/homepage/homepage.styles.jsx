@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../assets/styles/colors';
 
 export const HomepageContainer = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     background-color: ${colors.lightestGray};
 `;
 

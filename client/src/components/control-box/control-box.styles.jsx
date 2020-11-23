@@ -1,17 +1,23 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../assets/styles/breakpoints';
 import { colors, rgbColors } from '../../assets/styles/colors';
 
 export const Box = styled.div`
     background-color: ${colors.gray};
     width: 80%;
-    height: 7.5%;
+    height: 3rem;
     display: flex;
     justify-content: center;
     border-radius: .3rem;
+
+    @media only screen and (max-width: ${breakpoints.large}) {
+        width: 95%;
+    }
 `;
 
 export const Button = styled.button`
     width: 10%;
+    height: 3rem;
     outline: none;
     border: none;
     border-radius: .3rem;
@@ -29,6 +35,18 @@ export const Button = styled.button`
         cursor: not-allowed;
         background-color: rgba(${rgbColors.purple}, 0.5);
     }
+
+    @media only screen and (max-width: ${breakpoints.largest}) {
+        width: 15%;
+    }
+
+    @media only screen and (max-width: ${breakpoints.large}) {
+        font-size: .75rem;
+    }
+
+    @media only screen and (max-width: ${breakpoints.medium}) {
+        width: 35%;
+    }
 `;
 
 export const MessageInput = styled.textarea`
@@ -44,5 +62,9 @@ export const MessageInput = styled.textarea`
 
     &:disabled {
         cursor: not-allowed;
+    }
+
+    @media only screen and (max-width: ${breakpoints.large}) {
+        font-size: .75rem;
     }
 `;
